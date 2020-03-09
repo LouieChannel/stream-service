@@ -1,0 +1,23 @@
+﻿using System;
+
+namespace Ascalon.StreamService.DumperService.Dtos
+{
+    public class DumperInfo
+    {
+        public string Id { get; set; }
+
+        public string Gfx {get;set;}
+
+        public string Gfy {get;set;}
+
+        public string Gfz {get;set;}
+
+        public string Wx {get;set;}
+
+        public string Wy {get;set;}
+
+        public string Wz {get;set;}
+
+        public string Speed { get; set; }
+    }
+}
