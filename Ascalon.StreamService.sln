@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ascalon.StreamService", "src\Ascalon.StreamService\Ascalon.StreamService.csproj", "{4025CCD0-642E-4A60-8D62-EDEDD32C7F1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DumperClient", "DumperClient\DumperClient.csproj", "{13F0FD12-2080-42E1-97B8-7384D32F58AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DumperClient", "src\DumperClient\DumperClient.csproj", "{E8D83FE9-2232-450B-A5EA-22ED4D21B750}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ascalon.StreamService.DumperService", "Ascalon.StreamService.DumperService\Ascalon.StreamService.DumperService.csproj", "{FB1259F7-AD7A-4A9D-893E-DB838407698A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ascalon.StreamService.DumperService", "src\Ascalon.StreamService.DumperService\Ascalon.StreamService.DumperService.csproj", "{F1CBCE2C-C8DC-4AC9-8B42-9D68990177B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{4025CCD0-642E-4A60-8D62-EDEDD32C7F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4025CCD0-642E-4A60-8D62-EDEDD32C7F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4025CCD0-642E-4A60-8D62-EDEDD32C7F1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13F0FD12-2080-42E1-97B8-7384D32F58AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13F0FD12-2080-42E1-97B8-7384D32F58AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13F0FD12-2080-42E1-97B8-7384D32F58AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13F0FD12-2080-42E1-97B8-7384D32F58AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB1259F7-AD7A-4A9D-893E-DB838407698A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB1259F7-AD7A-4A9D-893E-DB838407698A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB1259F7-AD7A-4A9D-893E-DB838407698A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB1259F7-AD7A-4A9D-893E-DB838407698A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8D83FE9-2232-450B-A5EA-22ED4D21B750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8D83FE9-2232-450B-A5EA-22ED4D21B750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8D83FE9-2232-450B-A5EA-22ED4D21B750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8D83FE9-2232-450B-A5EA-22ED4D21B750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1CBCE2C-C8DC-4AC9-8B42-9D68990177B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1CBCE2C-C8DC-4AC9-8B42-9D68990177B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1CBCE2C-C8DC-4AC9-8B42-9D68990177B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1CBCE2C-C8DC-4AC9-8B42-9D68990177B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

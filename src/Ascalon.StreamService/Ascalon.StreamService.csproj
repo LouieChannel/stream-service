@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Ascalon.StreamService.DumperService\Ascalon.StreamService.DumperService.csproj" />
+    <ProjectReference Include="..\Ascalon.StreamService.DumperService\Ascalon.StreamService.DumperService.csproj" />
   </ItemGroup>
 
 </Project>
