@@ -19,7 +19,8 @@ namespace Ascalon.StreamService.DumperService.Dtos
                 Wx = separateData[4],
                 Wy = separateData[5],
                 Wz = separateData[6],
-                Speed = separateData[7]
+                Speed = separateData[7],
+                Label = separateData[8]
             };
         }
     }

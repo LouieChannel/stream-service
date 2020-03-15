@@ -19,5 +19,7 @@ namespace Ascalon.StreamService.DumperService.Dtos
         public string Wz {get;set;}
 
         public string Speed { get; set; }
+
+        public string Label { get; set; }
     }
 }
