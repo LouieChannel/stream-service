@@ -1,4 +1,5 @@
-﻿using LumenWorks.Framework.IO.Csv;
+﻿using DumperClient.Properties;
+using LumenWorks.Framework.IO.Csv;
 using System;
 using System.Data;
 using System.IO;
@@ -18,7 +19,7 @@ namespace DumperClient
             {
                 var csvTable = new DataTable();
 
-                using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(@"C:\Users\Louie\Downloads\Terra-D2-multi-labeled-interpolated.csv")), true))
+                using (var csvReader = new CsvReader(new StringReader(Resources.Terra_D1_multi_labeled_interpolated), true))
                 {
                     csvTable.Load(csvReader);
                 }

@@ -1,29 +1,25 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Text;
-using System.Net.Http;
-using System.Threading;
 using System.Net.Sockets;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Microsoft.Extensions.Options;
+using Ascalon.Kafka;
 using Ascalon.StreamService.DumperService.Dtos;
+using Microsoft.Extensions.Options;
 
 namespace Ascalon.StreamService.DumperService
 {
     public class DumperService : IDumperService
     {
         public bool Stop { get; set; }
-        private static HttpClient _httpClient;
         private static DumperServiceConfig _dumperServiceConfig;
+        private static Producer _producer;
         private Queue<string> _dataFromDumper = new Queue<string>();
         private Queue<DumperInfo> _dumerInfos = new Queue<DumperInfo>();
 
-        public DumperService(IHttpClientFactory clientFactory, IOptionsMonitor<DumperServiceConfig> optionsMonitor)
+        public DumperService(IOptionsMonitor<DumperServiceConfig> optionsMonitor, Producer producer)
         {
+            _producer = producer;
             _dumperServiceConfig = optionsMonitor.CurrentValue;
-            _httpClient = clientFactory.CreateClient();
-            _httpClient.BaseAddress = new Uri(_dumperServiceConfig.Host);
         }
 
         public void GetDataFromDumper()
@@ -89,7 +85,7 @@ namespace Ascalon.StreamService.DumperService
                         break;
                 }
 
-                await _httpClient.PostAsync($"dumper/", new StringContent(JsonConvert.SerializeObject(queueToSendData, Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }), System.Text.Encoding.UTF8, "application/json"));
+                await _producer.Produce(null, queueToSendData, "post_dumper_data");
             }
         }
     }

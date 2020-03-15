@@ -10,6 +10,8 @@ using System.Text;
 using Ascalon.StreamService.DumperService;
 using Microsoft.Extensions.Configuration;
 using System.Threading;
+using Ascalon.StreamService.Kafka;
+using Ascalon.StreamService.Infrastructure;
 
 namespace Ascalon.StreamService
 {
@@ -30,9 +32,11 @@ namespace Ascalon.StreamService
                 options.JsonSerializerOptions.IgnoreNullValues = true;
             });
 
-            services.Configure<DumperServiceConfig>(Configuration.GetSection("DumperServiceConfig"));
+            services.Configure<KafkaProducerOptions>(Configuration.GetSection("KafkaProducerOptions"));
 
             services.AddHttpClient();
+
+            services.AddKafkaProducer();
 
             services.AddSingleton<IDumperService, DumperService.DumperService>();
         }
