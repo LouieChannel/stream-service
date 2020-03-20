@@ -27,13 +27,13 @@ namespace DumperClient
                 foreach (DataRow element in csvTable.Rows)
                 {
                     byte[] data = Encoding.UTF8.GetBytes($"1,{element.ItemArray[1]},{element.ItemArray[2]},{element.ItemArray[3]},{element.ItemArray[4]},{element.ItemArray[5]},{element.ItemArray[6]},{element.ItemArray[7]},{element.ItemArray[8]}");
-                    client.Send(data, data.Length, "127.0.0.1", 5005);
+                    client.Send(data, data.Length, "streamservice", 5005);
                     Thread.Sleep(1);
                 }
 
                 client.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Ascalon.StreamService.DumperService;
+﻿using Ascalon.StreamService.DumperService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace Ascalon.StreamService.Controllers
 {
@@ -17,18 +13,10 @@ namespace Ascalon.StreamService.Controllers
         private readonly ILogger<ControlController> _logger;
         private readonly IDumperService _dumperService;
 
-        private Thread getData;
-        private Thread processData;
-        private Thread sendData;
-
         public ControlController(ILogger<ControlController> logger, IDumperService dumperService)
         {
             _logger = logger;
             _dumperService = dumperService;
-
-            getData = new Thread(new ThreadStart(_dumperService.GetDataFromDumper));
-            processData = new Thread(new ThreadStart(_dumperService.ProcessDataFromDumper));
-            sendData = new Thread(new ThreadStart(_dumperService.SendDataToDumperService));
         }
 
         [HttpGet]
@@ -40,12 +28,6 @@ namespace Ascalon.StreamService.Controllers
             try
             {
                 _dumperService.Stop = false;
-
-                getData.Start();
-
-                processData.Start();
-
-                sendData.Start();
 
                 return Ok();
             }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ascalon.StreamService.DumperService.Dtos
+﻿namespace Ascalon.StreamService.DumperService.Dtos
 {
     public static class Extensions
     {

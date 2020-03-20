@@ -1,10 +1,11 @@
-﻿using System.Net;
-using System.Text;
-using System.Net.Sockets;
-using System.Collections.Generic;
-using Ascalon.Kafka;
+﻿using Ascalon.Kafka;
 using Ascalon.StreamService.DumperService.Dtos;
 using Microsoft.Extensions.Options;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 
 namespace Ascalon.StreamService.DumperService
 {
@@ -16,10 +17,22 @@ namespace Ascalon.StreamService.DumperService
         private Queue<string> _dataFromDumper = new Queue<string>();
         private Queue<DumperInfo> _dumerInfos = new Queue<DumperInfo>();
 
+        private Thread getData;
+        private Thread processData;
+        private Thread sendData;
+
         public DumperService(IOptionsMonitor<DumperServiceConfig> optionsMonitor, Producer producer)
         {
             _producer = producer;
             _dumperServiceConfig = optionsMonitor.CurrentValue;
+
+            getData = new Thread(new ThreadStart(GetDataFromDumper));
+            processData = new Thread(new ThreadStart(ProcessDataFromDumper));
+            sendData = new Thread(new ThreadStart(SendDataToDumperService));
+
+            getData.Start();
+            processData.Start();
+            sendData.Start();
         }
 
         public void GetDataFromDumper()

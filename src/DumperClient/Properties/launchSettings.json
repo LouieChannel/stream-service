@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DumperClient": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "": "Value"
+      }
+    }
+  }
+}

@@ -1,17 +1,13 @@
-using System.Text.Json;
-using System.Globalization;
-using System.Text.Json.Serialization;
+using Ascalon.StreamService.DumperService;
+using Ascalon.StreamService.Infrastructure;
+using Ascalon.StreamService.Kafka;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using System.Net.Sockets;
-using System.Net;
-using System.Text;
-using Ascalon.StreamService.DumperService;
 using Microsoft.Extensions.Configuration;
-using System.Threading;
-using Ascalon.StreamService.Kafka;
-using Ascalon.StreamService.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using System.Globalization;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Ascalon.StreamService
 {

@@ -1,8 +1,4 @@
-﻿using System.Threading.Tasks;
-using System.Collections.Generic;
-using Ascalon.StreamService.DumperService.Dtos;
-
-namespace Ascalon.StreamService.DumperService
+﻿namespace Ascalon.StreamService.DumperService
 {
     public interface IDumperService
     {
