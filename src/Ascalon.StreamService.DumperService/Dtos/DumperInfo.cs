@@ -2,8 +2,6 @@
 {
     public class DumperInfo
     {
-        public string Id { get; set; }
-
         public string Gfx { get; set; }
 
         public string Gfy { get; set; }
@@ -19,5 +17,7 @@
         public string Speed { get; set; }
 
         public string Label { get; set; }
+
+        public string IpAddress { get; set; }
     }
 }

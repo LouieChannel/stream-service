@@ -3,6 +3,7 @@ using Ascalon.StreamService.Infrastructure;
 using Ascalon.StreamService.Kafka;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Globalization;
@@ -35,6 +36,10 @@ namespace Ascalon.StreamService
             services.AddKafkaProducer();
 
             services.AddSingleton<IDumperService, DumperService.DumperService>();
+
+            var buildService = services.BuildServiceProvider();
+
+            buildService.GetService<IDumperService>().Stop = false;
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

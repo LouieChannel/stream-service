@@ -12,7 +12,7 @@ namespace Ascalon.StreamService.DumperService
     public class DumperService : IDumperService
     {
         public bool Stop { get; set; }
-        private static DumperServiceConfig _dumperServiceConfig;
+
         private static Producer _producer;
         private Queue<string> _dataFromDumper = new Queue<string>();
         private Queue<DumperInfo> _dumerInfos = new Queue<DumperInfo>();
@@ -21,11 +21,10 @@ namespace Ascalon.StreamService.DumperService
         private Thread processData;
         private Thread sendData;
 
-        public DumperService(IOptionsMonitor<DumperServiceConfig> optionsMonitor, Producer producer)
+        public DumperService(Producer producer)
         {
             _producer = producer;
-            _dumperServiceConfig = optionsMonitor.CurrentValue;
-
+            
             getData = new Thread(new ThreadStart(GetDataFromDumper));
             processData = new Thread(new ThreadStart(ProcessDataFromDumper));
             sendData = new Thread(new ThreadStart(SendDataToDumperService));
@@ -49,7 +48,7 @@ namespace Ascalon.StreamService.DumperService
                         break;
 
                     byte[] data = receiver.Receive(ref remoteIp);
-                    _dataFromDumper.Enqueue(Encoding.UTF8.GetString(data));
+                    _dataFromDumper.Enqueue(Encoding.UTF8.GetString(data)+$",{remoteIp.Address}");
                 }
             }
             finally
