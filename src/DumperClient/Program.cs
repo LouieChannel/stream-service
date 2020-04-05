@@ -24,6 +24,8 @@ namespace DumperClient
                     csvTable.Load(csvReader);
                 }
 
+                Thread.Sleep(10000);
+
                 foreach (DataRow element in csvTable.Rows)
                 {
                     byte[] data = Encoding.UTF8.GetBytes($"{element.ItemArray[1]},{element.ItemArray[2]},{element.ItemArray[3]},{element.ItemArray[4]},{element.ItemArray[5]},{element.ItemArray[6]},{element.ItemArray[7]},{element.ItemArray[8]}");
