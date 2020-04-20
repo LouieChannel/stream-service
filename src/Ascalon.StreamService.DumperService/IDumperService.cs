@@ -2,12 +2,8 @@
 {
     public interface IDumperService
     {
-        bool Stop { get; set; }
+        void InitShift(int driverId);
 
-        void GetDataFromDumper();
-
-        void ProcessDataFromDumper();
-
-        void SendDataToDumperService();
+        void EndShift(int driverId);
     }
 }

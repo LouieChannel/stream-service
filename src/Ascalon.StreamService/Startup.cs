@@ -2,10 +2,9 @@ using Ascalon.StreamService.DumperService;
 using Ascalon.StreamService.Infrastructure;
 using Ascalon.StreamService.Kafka;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Data;
 using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -21,6 +20,8 @@ namespace Ascalon.StreamService
 
         public IConfiguration Configuration { get; }
 
+        public static DataTable CsvTable { get; private set; }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddJsonOptions(options =>
@@ -35,14 +36,10 @@ namespace Ascalon.StreamService
 
             services.AddKafkaProducer();
 
-            services.AddSingleton<IDumperService, DumperService.DumperService>();
-
-            var buildService = services.BuildServiceProvider();
-
-            buildService.GetService<IDumperService>().Stop = false;
+            services.AddScoped<IDumperService, DumperService.DumperService>();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("ru-RU");
             CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("ru-RU");

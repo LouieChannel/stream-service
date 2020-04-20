@@ -11,10 +11,10 @@
                 Gfx = separateData[0],
                 Gfy = separateData[1],
                 Gfz = separateData[2],
-                Wx = separateData[3],
+                Wx = separateData[3].Replace("\r\n", "").TrimStart(),
                 Wy = separateData[4],
                 Wz = separateData[5],
-                Speed = separateData[6],
+                Speed = separateData[6].Replace("\r\n", "").TrimStart(),
                 Label = separateData[7],
                 IpAddress = separateData[8]
             };

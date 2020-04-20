@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DumperClient.Properties {
+namespace Ascalon.StreamService.DumperService.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DumperClient.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DumperClient.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ascalon.StreamService.DumperService.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -62,13 +62,12 @@ namespace DumperClient.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to time,gFx,gFy,gFz,wx,wy,wz,speed,label
-        ///0.0,-0.2311,0.0049,0.955,0.0059,-0.0116,0.0012,0.0,1.0
-        ///0.010000025711567634,-0.2311,0.0049,0.955,0.0059,-0.0116,0.0012,0.0,1.0
-        ///0.020000051423135268,-0.2311,0.0049,0.955,0.0059,-0.0116,0.0012,0.0,1.0
-        ///0.0300000771347029,-0.2311,0.0049,0.955,0.0065,-0.0079,0.0012,0.0,1.0
-        ///0.040000102846270535,-0.2311,0.0049,0.955,0.0065,-0.0079,0.0012,0.0,1.0
-        ///0.05000012855783817,-0.2311,0.0049,0.955,0.0065,-0.0079,0.0012,0.0,1.0
-        ///0.0600001542694058,-0.2311,0.0049,0.955,0.0065,-0.0079,0.0012, [rest of string was truncated]&quot;;.
+        ///0.0,-0.2727,0.0442,0.9382,-0.0053,-0.0077,-0.0331,0.0,1.0
+        ///0.0100000070759929,-0.2727,0.0442,0.9382,-0.0053,-0.0077,-0.0331,0.0,1.0
+        ///0.0200000141519858,-0.2895,0.0462,0.9934,-0.001,0.006999999999999999,-0.0312,0.0,1.0
+        ///0.0300000212279787,-0.2895,0.0462,0.9934,-0.001,0.006999999999999999,-0.0312,0.0,1.0
+        ///0.0400000283039716,-0.2895,0.0462,0.9934,-0.001,0.006999999999999999,-0.0312,0.0,1.0
+        ///0.050000035379964496,-0.2895,0.0462,0.9934,-0.0009999787720213044,0.00699999999999 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Terra_D1_multi_labeled_interpolated {
             get {

@@ -7,52 +7,50 @@ using System;
 namespace Ascalon.StreamService.Controllers
 {
     [ApiController]
-    [Route("control")]
-    public class ControlController : Controller
+    [Route("[controller]")]
+    public class ShiftController : ControllerBase
     {
-        private readonly ILogger<ControlController> _logger;
+        private readonly ILogger<ShiftController> _logger;
         private readonly IDumperService _dumperService;
 
-        public ControlController(ILogger<ControlController> logger, IDumperService dumperService)
+        public ShiftController(ILogger<ShiftController> logger, IDumperService dumperService)
         {
             _logger = logger;
             _dumperService = dumperService;
         }
 
-        [HttpGet]
-        [Route("run")]
+        [HttpGet("start/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult Run()
+        public ActionResult Start([FromRoute]int id)
         {
             try
             {
-                _dumperService.Stop = false;
+                _dumperService.InitShift(id);
 
                 return Ok();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error when trying to start sevice.");
+                _logger.LogError(ex, $"Error when trying to start shift: Number driver id: {id}.");
                 return StatusCode(500);
             }
         }
 
-        [HttpGet]
-        [Route("stop")]
+        [HttpGet("stop/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult Stop()
+        public ActionResult Stop([FromRoute]int id)
         {
             try
             {
-                _dumperService.Stop = true;
+                _dumperService.EndShift(id);
 
                 return Ok();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error when trying to start sevice.");
+                _logger.LogError(ex, $"Error when trying to start shift. Number driver id: {id}.");
                 return StatusCode(500);
             }
         }
