@@ -119,7 +119,7 @@ namespace Ascalon.StreamService.DumperService
 
                         _dumerInfos.Enqueue(result.ToDumperInfo());
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         continue;
                     }
